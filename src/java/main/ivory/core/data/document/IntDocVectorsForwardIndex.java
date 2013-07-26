@@ -117,12 +117,14 @@ public class IntDocVectorsForwardIndex {
 
     SequenceFile.Reader reader = null;
     try {
-      reader = new SequenceFile.Reader(conf,
-          SequenceFile.Reader.file(new Path(path + "/part-m-" + FORMAT.format(fileNo))));
+      /*reader = new SequenceFile.Reader(conf,
+          SequenceFile.Reader.file(new Path(path + "/part-m-" + FORMAT.format(fileNo))));*/
+      reader = new SequenceFile.Reader(FileSystem.get(conf), new Path(path + "/part-m-" + FORMAT.format(fileNo)), conf); //Author JKG
     } catch (IOException e) {
       // Try alternative naming scheme for the old API.
-      reader = new SequenceFile.Reader(conf,
-          SequenceFile.Reader.file(new Path(path + "/part-" + FORMAT.format(fileNo))));
+      /*reader = new SequenceFile.Reader(conf,
+          SequenceFile.Reader.file(new Path(path + "/part-" + FORMAT.format(fileNo))));*/
+      reader = new SequenceFile.Reader(FileSystem.get(conf), new Path(path + "/part-" + FORMAT.format(fileNo)), conf); //Author JKG
     }
 
     IntWritable key = new IntWritable();

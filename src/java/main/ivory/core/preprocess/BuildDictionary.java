@@ -253,8 +253,9 @@ public class BuildDictionary extends PowerTool {
     Path tmpPath = new Path(env.getTempDirectory());
     fs.delete(tmpPath, true);
 
-    Job job = Job.getInstance(conf,
-        BuildDictionary.class.getSimpleName() + ":" + collectionName);
+    /*Job job = Job.getInstance(conf,
+        BuildDictionary.class.getSimpleName() + ":" + collectionName);*/
+    Job job = new Job(conf,BuildDictionary.class.getSimpleName() + ":" + collectionName); //Author JKG
 
     job.setJarByClass(BuildDictionary.class);
     job.setNumReduceTasks(1);

@@ -173,8 +173,9 @@ public class BuildTermDocVectorsForwardIndex extends PowerTool {
       return 0;
     }
 
-    Job job = Job.getInstance(conf,
-        BuildTermDocVectorsForwardIndex.class.getSimpleName() + ":" + collectionName);
+    /*Job job = Job.getInstance(conf,
+        BuildTermDocVectorsForwardIndex.class.getSimpleName() + ":" + collectionName);*/
+    Job job = new Job(conf, BuildTermDocVectorsForwardIndex.class.getSimpleName() + ":" + collectionName); //Author JOB
     job.setJarByClass(BuildTermDocVectorsForwardIndex.class);
 
     FileInputFormat.setInputPaths(job, new Path(env.getTermDocVectorsDirectory()));

@@ -77,12 +77,14 @@ public class IntPostingsForwardIndex {
     // Open up the SequenceFile.
     SequenceFile.Reader reader = null;
     try {
-      reader = new SequenceFile.Reader(conf,
-          SequenceFile.Reader.file(new Path(postingsPath + "/part-" + FORMAT.format(fileNo))));
+      /*reader = new SequenceFile.Reader(conf,
+          SequenceFile.Reader.file(new Path(postingsPath + "/part-" + FORMAT.format(fileNo))));*/
+      reader = new SequenceFile.Reader(FileSystem.get(conf), new Path(postingsPath + "/part-" + FORMAT.format(fileNo)), conf); //Author JKG
     } catch (IOException e) {
       // Try alternative naming scheme for output of new API.
-      reader = new SequenceFile.Reader(conf,
-          SequenceFile.Reader.file(new Path(postingsPath + "/part-r-" + FORMAT.format(fileNo))));
+      /*reader = new SequenceFile.Reader(conf,
+          SequenceFile.Reader.file(new Path(postingsPath + "/part-r-" + FORMAT.format(fileNo))));*/
+      reader = new SequenceFile.Reader(FileSystem.get(conf), new Path(postingsPath + "/part-r-" + FORMAT.format(fileNo)), conf); //Author JKG
     }
 
     IntWritable key = new IntWritable();

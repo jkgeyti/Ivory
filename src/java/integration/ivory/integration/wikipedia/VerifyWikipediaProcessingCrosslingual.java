@@ -240,8 +240,10 @@ public class VerifyWikipediaProcessingCrosslingual {
     IntWritable key = new IntWritable();
     HMapSFW value = new HMapSFW();
 
-    reader = new SequenceFile.Reader(fs.getConf(),
-        SequenceFile.Reader.file(new Path(enwikiEn + "/test_wt-term-doc-vectors/part-00000")));
+    /*reader = new SequenceFile.Reader(fs.getConf(),
+        SequenceFile.Reader.file(new Path(enwikiEn + "/test_wt-term-doc-vectors/part-00000")));*/
+    reader = new SequenceFile.Reader(fs, new Path(enwikiEn + "/test_wt-term-doc-vectors/part-00000"), fs.getConf()); //Author JKG
+
     reader.next(key, value);
     System.out.println("*** top 10 terms ***");
     for (MapKF.Entry<String> entry : value.getEntriesSortedByValue(10)) {
@@ -269,8 +271,9 @@ public class VerifyWikipediaProcessingCrosslingual {
     HMapIFW map = new HMapIFW();
     WeightedIntDocVector value = new WeightedIntDocVector();
 
-    reader = new SequenceFile.Reader(fs.getConf(),
-        SequenceFile.Reader.file(new Path(enwikiEn + "/test_wt-int-doc-vectors/part-00000")));
+    /*reader = new SequenceFile.Reader(fs.getConf(),
+        SequenceFile.Reader.file(new Path(enwikiEn + "/test_wt-int-doc-vectors/part-00000")));*/
+    reader = new SequenceFile.Reader(fs, new Path(enwikiEn + "/test_wt-int-doc-vectors/part-00000"), fs.getConf()); //Author JKG
 
     reader.next(key, value);
     System.out.println("*** top 10 terms ***");
@@ -374,8 +377,9 @@ public class VerifyWikipediaProcessingCrosslingual {
     IntWritable key = new IntWritable();
     HMapSFW value = new HMapSFW();
 
-    reader = new SequenceFile.Reader(fs.getConf(),
-        SequenceFile.Reader.file(new Path(dewikiEn + "/test_wt-term-doc-vectors/part-00000")));
+    /*reader = new SequenceFile.Reader(fs.getConf(),
+        SequenceFile.Reader.file(new Path(dewikiEn + "/test_wt-term-doc-vectors/part-00000")));*/
+    reader = new SequenceFile.Reader(fs, new Path(dewikiEn + "/test_wt-term-doc-vectors/part-00000"), fs.getConf()); //Author JKG
     reader.next(key, value);
     System.out.println("*** top 10 terms ***");
     for (MapKF.Entry<String> entry : value.getEntriesSortedByValue(10)) {
@@ -403,8 +407,9 @@ public class VerifyWikipediaProcessingCrosslingual {
     HMapIFW map = new HMapIFW();
     WeightedIntDocVector value = new WeightedIntDocVector();
 
-    reader = new SequenceFile.Reader(fs.getConf(),
-        SequenceFile.Reader.file(new Path(dewikiEn + "/test_wt-int-doc-vectors/part-00000")));
+    /*reader = new SequenceFile.Reader(fs.getConf(),
+        SequenceFile.Reader.file(new Path(dewikiEn + "/test_wt-int-doc-vectors/part-00000")));*/
+    reader = new SequenceFile.Reader(fs, new Path(dewikiEn + "/test_wt-int-doc-vectors/part-00000"), fs.getConf()); //Author JKG
     reader.next(key, value);
     System.out.println("*** top 10 terms ***");
     map = value.getWeightedTerms();

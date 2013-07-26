@@ -18,3 +18,18 @@ data/en-ar.trec02/moses.grammar/grammar*
 data/en-fr.clef06/moses.grammar/grammar*
 data/en-zh.ntcir8/moses.grammar/grammar*
 
+
+/.idea/.name
+/.idea/ant.xml
+/.idea/compiler.xml
+/.idea/copyright/profiles_settings.xml
+/.idea/encodings.xml
+/.idea/libraries/lib.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/scopes/scope_settings.xml
+/.idea/uiDesigner.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/Ivory.iml
+/src/java/Ivory.iml

@@ -284,8 +284,9 @@ public class BuildIPInvertedIndexDocSorted extends PowerTool {
     conf.set("mapreduce.reduce.memory.mb", "3072");
     conf.set("mapreduce.reduce.java.opts", "-Xmx3072m");
 
-    Job job = Job.getInstance(conf,
-        BuildIPInvertedIndexDocSorted.class.getSimpleName() + ":" + collectionName);
+    /*Job job = Job.getInstance(conf,
+        BuildIPInvertedIndexDocSorted.class.getSimpleName() + ":" + collectionName);*/
+    Job job = new Job(conf, BuildIPInvertedIndexDocSorted.class.getSimpleName() + ":" + collectionName); //Author JKG
     job.setJarByClass(BuildIPInvertedIndexDocSorted.class);
 
     job.setNumReduceTasks(reduceTasks);

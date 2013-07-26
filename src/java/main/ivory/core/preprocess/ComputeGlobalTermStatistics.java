@@ -161,8 +161,9 @@ public class ComputeGlobalTermStatistics extends PowerTool {
       return 0;
     }
 
-    Job job = Job.getInstance(getConf(),
-        ComputeGlobalTermStatistics.class.getSimpleName() + ":" + collectionName);
+    /*Job job = Job.getInstance(getConf(),
+        ComputeGlobalTermStatistics.class.getSimpleName() + ":" + collectionName);*/
+    Job job = new Job(getConf(), ComputeGlobalTermStatistics.class.getSimpleName() + ":" + collectionName); //Author JKG
     job.setJarByClass(ComputeGlobalTermStatistics.class);
 
     job.setNumReduceTasks(reduceTasks);

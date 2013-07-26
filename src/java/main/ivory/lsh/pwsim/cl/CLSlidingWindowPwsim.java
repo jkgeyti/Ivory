@@ -34,7 +34,8 @@ import org.apache.hadoop.mapred.RunningJob;
 import org.apache.hadoop.mapred.SequenceFileInputFormat;
 import org.apache.hadoop.mapred.SequenceFileOutputFormat;
 import org.apache.hadoop.mapred.TextOutputFormat;
-import org.apache.hadoop.mapreduce.filecache.DistributedCache;
+//import org.apache.hadoop.mapreduce.filecache.DistributedCache;
+import org.apache.hadoop.filecache.DistributedCache;
 import org.apache.hadoop.util.LineReader;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
@@ -218,6 +219,7 @@ public class CLSlidingWindowPwsim extends Configured implements Tool {
 
     JobConf job = new JobConf(getConf(), CLSlidingWindowPwsim.class);
     FileSystem fs = FileSystem.get(job);
+
     inputPath = inputPath == null ? PwsimEnvironment.getTablesDir(workDir, fs, signatureType, numOfBits, chunkOverlapSize, numOfPermutations) : inputPath;
     outputPath = outputPath == null ? PwsimEnvironment.getPwsimDir(workDir, signatureType, maxDist, numOfBits, numOfPermutations, windowSize) : outputPath;
 

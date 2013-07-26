@@ -193,8 +193,9 @@ public class BuildIntPostingsForwardIndex extends PowerTool {
     LOG.info(String.format(" - %s: %s", Constants.IndexPath, indexPath));
     LOG.info(String.format(" - %s: %s", Constants.CollectionName, collectionName));
 
-    Job job = Job.getInstance(getConf(),
-        BuildIntPostingsForwardIndex.class.getSimpleName() + ":" + collectionName);
+    /*Job job = Job.getInstance(getConf(),
+        BuildIntPostingsForwardIndex.class.getSimpleName() + ":" + collectionName);*/
+    Job job = new Job(getConf(), BuildIntPostingsForwardIndex.class.getSimpleName() + ":" + collectionName); //Author JKG
     job.setJarByClass(BuildIntPostingsForwardIndex.class);
 
     Path inputPath = new Path(env.getPostingsDirectory());
